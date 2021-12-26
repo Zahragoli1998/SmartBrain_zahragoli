@@ -1,0 +1,18 @@
+
+.sing{
+  display: flex;
+  justify-content: flex-end;
+}
+.singout{
+  color: black;
+  text-decoration: underline;
+  padding: 3px;
+  cursor: pointer;
+  font-size: 30px;
+  
+}
+.singout:hover,
+.singout:active{
+  opacity: 0.5;
+  color: black;
+}
