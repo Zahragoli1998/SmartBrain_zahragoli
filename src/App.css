@@ -2,7 +2,7 @@ body{
   margin: 0%;
   padding: 0%;
   box-sizing: border-box;
-  background : linear-gradient(90deg,rgb(75, 75, 69) 0%,rgb(103, 250, 135) 100%);
+  background : linear-gradient(90deg,rgb(23, 25, 53) 0%,rgb(156, 21, 111) 100%);
 }
 .particles{
   position: fixed;
@@ -11,4 +11,11 @@ body{
   right: 0;
   left: 0;
   z-index: -1;
+}
+.nameApp{
+  font-size: 60px;
+  text-align: center;
+  color: aliceblue;
+  font-family: 'Shizuru', cursive;
+  border-color: black;
 }

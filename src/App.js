@@ -6,7 +6,6 @@ import ImageLinkForm from './Component/ImageLinkForm/ImageLinkForm';
 import FaceRecognition from './Component/FaceRecognition/FaceRecognition';
 import Register from './Component/Register/Register';
 import Singin from './Component/Singin/Singin';
-import Rank from './Component/Rank/Rank';
 import Particles from 'react-particles-js';
 import Clarifai from 'clarifai';
 
@@ -16,13 +15,13 @@ const app = new Clarifai.App({ apiKey: "3054abc2823047b2b08506861d4e3f7e", apiEn
 const particleOption ={
   particles: {
     number:{
-      value:30,
+      value:100,
       density:{
         enable: true,
-        value_area: 800
+        value_area: 800,
       }
-    }
-  }
+    },
+  },
 }
 class App extends Component{
    constructor(){
@@ -30,7 +29,7 @@ class App extends Component{
      this.state={
        input:'',
        imageUrl:'',
-       box:{},
+       facePosition:[],
        route:'singin',
        isSingedin:false
      }
@@ -56,9 +55,9 @@ class App extends Component{
   }
 
 
-  diplayFacebox=(box)=>{
-    console.log(box);
-    this.setState({box})
+  diplayFacebox=(facePosition)=>{
+    console.log(facePosition);
+    this.setState({facePosition})
   }
 
   onInputChange=(e)=>{
@@ -90,13 +89,15 @@ class App extends Component{
       { this.state.route === 'home'
       ?<div>
       <Logo/>
-      <Rank/>
+      <div className='nameApp'>
+       <p>FaceRecognition App</p>
+      </div>
       <ImageLinkForm
       onInputChange={this.onInputChange}
       onButtonSumbit={this.onButtonSumbit}/>
       <FaceRecognition
         imageUrl={this.state.imageUrl}
-        box={this.state.box}/>
+        facePosition={this.state.facePosition}/>
     </div>
       :(this.state.route === 'singin'
         ?<Singin onRouteChange={this.onRouteChange}/>
